@@ -1,24 +1,16 @@
-# BRAND NU U - Full-Stack E-commerce Application# BRAND NU U - React E-commerce Store<<<<<<< HEAD
+# BRAND NU U - Full-Stack E-commerce Application
 
+A comprehensive BRAND NU U e-commerce application featuring a **React 18 frontend** with **Flask API backend** and **MySQL database**. Includes advanced product catalog, custom text hoodie designer, shopping cart with wishlist, and complete RESTful API with CRUD operations.
 
+## 🏗️ **Full-Stack Architecture**
 
-A comprehensive BRAND NU U e-commerce application featuring a **React 18 frontend** with **Flask API backend** and **MySQL database**. Includes advanced product catalog, custom text hoodie designer, shopping cart with wishlist, and complete RESTful API with CRUD operations.# React E-commerce Store
-
-
-
-## 🏗️ **Full-Stack Architecture**A modern BRAND NU U e-commerce application built with React 18, featuring a comprehensive product catalog, advanced shopping cart with custom text functionality, and real-time hoodie customization.
-
-
-
-- **Frontend**: React 18 with custom state managementA modern e-commerce application built with React, Redux Toolkit, and React Query, featuring a product catalog, shopping cart, and checkout functionality.
-
+- **Frontend**: React 18 with custom state management
 - **Backend**: Flask RESTful API with SQLAlchemy ORM
-
-- **Database**: MySQL with relational design## 🚀 Features
-
+- **Database**: MySQL with relational design
 - **API Testing**: Comprehensive Postman collection
+- **CORS Enabled**: Frontend-backend integration ready
 
-- **CORS Enabled**: Frontend-backend integration ready## 🚀 Features
+## 🚀 Features
 
 
 
@@ -586,7 +578,3 @@ This complete full-stack project includes:4. Push to the branch (`git push origi
 ---
 
 **Enjoy building your e-commerce store! 🛍️**
-=======
-# React-Ecommerce-api
-ecommerce  api site
->>>>>>> b32df5415d3b2fc51d940119da6793146e1a9d0f
