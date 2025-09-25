@@ -1,0 +1,578 @@
+{
+	"info": {
+		"_postman_id": "brand-nu-u-ecommerce-api",
+		"name": "BRAND NU U E-commerce API Collection",
+		"description": "Complete API testing collection for BRAND NU U E-commerce Flask backend with MySQL database. Includes all CRUD operations for Users, Products, and Orders with proper validation and error handling.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "5000",
+					"path": [""]
+				},
+				"description": "Get API information and available endpoints"
+			}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["users"]
+						},
+						"description": "Retrieve all users from the database"
+					}
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["users", "1"]
+						},
+						"description": "Retrieve a specific user by their ID"
+					}
+				},
+				{
+					"name": "Create New User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test User\",\n    \"address\": \"123 Test Street, Test City, TC 12345\",\n    \"email\": \"testuser@brandnuu.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/users",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["users"]
+						},
+						"description": "Create a new user with name, address, and unique email"
+					}
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated User Name\",\n    \"address\": \"456 Updated Street, New City, NC 67890\",\n    \"email\": \"updated.email@brandnuu.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["users", "1"]
+						},
+						"description": "Update an existing user's information"
+					}
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["users", "1"]
+						},
+						"description": "Delete a user by ID (will also delete associated orders)"
+					}
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/products",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["products"]
+						},
+						"description": "Retrieve all products from the catalog"
+					}
+				},
+				{
+					"name": "Get Product by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/products/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["products", "1"]
+						},
+						"description": "Retrieve a specific product by its ID"
+					}
+				},
+				{
+					"name": "Create New Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_name\": \"Premium Custom Hoodie\",\n    \"price\": 79.99,\n    \"category\": \"Clothing\",\n    \"description\": \"High-quality premium hoodie with custom text options for BRAND NU U customers\",\n    \"image_url\": \"https://via.placeholder.com/400x400/000000/FFFFFF?text=Premium+Hoodie\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/products",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["products"]
+						},
+						"description": "Create a new product in the catalog"
+					}
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_name\": \"Updated Premium Hoodie\",\n    \"price\": 89.99,\n    \"category\": \"Premium Clothing\",\n    \"description\": \"Updated description for premium hoodie with enhanced features\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/products/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["products", "1"]
+						},
+						"description": "Update an existing product's information"
+					}
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/products/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["products", "1"]
+						},
+						"description": "Delete a product from the catalog"
+					}
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create New Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"order_date\": \"2025-09-24T10:30:00Z\",\n    \"status\": \"pending\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/orders",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["orders"]
+						},
+						"description": "Create a new order for a user"
+					}
+				},
+				{
+					"name": "Add Product to Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/orders/1/add_product/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["orders", "1", "add_product", "1"]
+						},
+						"description": "Add a product to an existing order with specified quantity"
+					}
+				},
+				{
+					"name": "Add Another Product to Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/orders/1/add_product/2",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["orders", "1", "add_product", "2"]
+						},
+						"description": "Add a second product to the same order"
+					}
+				},
+				{
+					"name": "Remove Product from Order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/orders/1/remove_product/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["orders", "1", "remove_product", "1"]
+						},
+						"description": "Remove a product from an order"
+					}
+				},
+				{
+					"name": "Get Orders by User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/orders/user/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["orders", "user", "1"]
+						},
+						"description": "Get all orders for a specific user"
+					}
+				},
+				{
+					"name": "Get Products in Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/orders/1/products",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["orders", "1", "products"]
+						},
+						"description": "Get all products in a specific order with quantities and prices"
+					}
+				}
+			]
+		},
+		{
+			"name": "Error Testing",
+			"item": [
+				{
+					"name": "Get Non-existent User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/999",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["users", "999"]
+						},
+						"description": "Test 404 error for non-existent user"
+					}
+				},
+				{
+					"name": "Create User with Duplicate Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Duplicate User\",\n    \"address\": \"123 Duplicate St\",\n    \"email\": \"john.doe@email.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/users",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["users"]
+						},
+						"description": "Test duplicate email validation error"
+					}
+				},
+				{
+					"name": "Add Duplicate Product to Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/orders/1/add_product/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["orders", "1", "add_product", "1"]
+						},
+						"description": "Test duplicate product in order error (should fail if product already exists)"
+					}
+				},
+				{
+					"name": "Create Product with Invalid Price",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_name\": \"Invalid Product\",\n    \"price\": -10.99,\n    \"category\": \"Test\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/products",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["products"]
+						},
+						"description": "Test negative price validation error"
+					}
+				}
+			]
+		},
+		{
+			"name": "Integration Tests",
+			"item": [
+				{
+					"name": "Complete Order Flow",
+					"item": [
+						{
+							"name": "1. Create Customer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Integration Test Customer\",\n    \"address\": \"123 Integration St, Test City, TC 12345\",\n    \"email\": \"integration@brandnuu.com\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/users",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["users"]
+								}
+							}
+						},
+						{
+							"name": "2. Create Products",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product_name\": \"Integration Test Hoodie\",\n    \"price\": 49.99,\n    \"category\": \"Clothing\",\n    \"description\": \"Test hoodie for integration testing\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/products",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["products"]
+								}
+							}
+						},
+						{
+							"name": "3. Create Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 4\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/orders",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["orders"]
+								}
+							}
+						},
+						{
+							"name": "4. Add Products to Order",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"quantity\": 3\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/orders/2/add_product/5",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["orders", "2", "add_product", "5"]
+								}
+							}
+						},
+						{
+							"name": "5. Verify Order",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/orders/2/products",
+									"protocol": "http",
+									"host": ["localhost"],
+									"port": "5000",
+									"path": ["orders", "2", "products"]
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	]
+}
